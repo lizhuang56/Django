@@ -1,0 +1,21 @@
+<nav>
+	
+		<button class="navbar-toggle collapsed"data-toggle="collapse" data-target="#navbar-collapse">
+			<span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+		</button>
+	<div id="navbar-collapse" class="collapse navbar-collapse">
+		<ul class="nav navbar-nav">
+	<li><a href="{% url 'shopping:主页' %}" class="font_01">所有商品</a></li>
+	<style>
+	.font_01 {font-size: 25px;}
+	</style>
+	{% for 每个类别 in Allcategories %}
+		<li><a href="{% url 'shopping:单类页' 每个类别.id %}">{{ 每个类别.名称 }}</a></li>
+	{% endfor %}
+
+	</ul>
+	</div>
+	
+</nav>

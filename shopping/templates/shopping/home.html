@@ -1,0 +1,56 @@
+{% extends "shopping/base.html" %}
+
+{% load static %}
+
+{% block 主体 %}
+	
+	{% for Eachcategory, thisproduct in cate_com %}
+			<div class="row">
+  				<div class="col-xs-6 col-md-3">
+    				<h2>{{ Eachcategory.名称 }}</h2>
+				<img src="{{ Eachcategory.图片.url}}"  alt="{{Eachcategory.名称}}" class="img-thumbnail">
+  				</div>
+			</div>
+		<!--<h2>{{ Eachcategory.名称 }}</h2>
+				<img src="{{ Eachcategory.图片.url}}" width="175" height="47" alt="{{Eachcategory.名称}}" class="img-thumbnail">
+		-->
+	  			{% for everyproduct in thisproduct %}
+	  			<!--<h3>
+					<a href="{% url 'shopping:详情页' Eachcategory.id everyproduct.id %}">{{ everyproduct.名称 }}</a>
+				</h3>-->
+
+				<br>
+	  			<div class="row">
+  					<div class="col-sm-6 col-md-4">
+    					<div class="thumbnail">
+    						
+      							<img src="{{ everyproduct.图片.url }}" class="initImg" alt="{{ everyproduct.名称 }}" >
+	      						<div class="caption">
+	        						<h3>
+									<a href="{% url 'shopping:详情页' Eachcategory.id everyproduct.id %}">{{ everyproduct.名称 }}</a>
+									</h3>
+	        						<h4>{{ everyproduct.价格|cut:".0000" }}元</h4>
+	        						<p>{{ everyproduct.描述 }}</p>
+	      						</div>
+
+    					</div>
+  					</div>
+				</div>
+
+				<!--<p>{{ everyproduct.描述 }}</p>-->
+
+				
+				<style type="text/css">
+				.initImg{
+					    width: 200px;
+					    height: 100px;
+						}
+				</style>
+				<br>
+				<!--<h4>{{ everyproduct.价格|cut:".0000" }}元</h4>-->
+				<br>
+				{% endfor %}
+
+	{% endfor %}
+
+{% endblock 主体 %}

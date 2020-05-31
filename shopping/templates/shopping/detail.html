@@ -1,0 +1,27 @@
+{% extends "shopping/base.html" %}
+{% load static %}
+{% block 关键词 %}{{ product.名称 }}{% endblock 关键词 %}
+{% block 网页描述 %}{{ product.描述 }}{% endblock 网页描述 %}
+{% block 网页标题 %}{{ product.名称 }}}{% endblock 网页标题 %}
+
+{% block 主体 %}
+
+	<h2>{{ product.名称 }}</h2>
+	<p>{{ product.描述 }}</p>
+	<img src="{{ product.图片.url }}" alt="">
+
+	{% if product.库存 > 0 %}
+		<p>库存{{ product.库存 }}</p>
+	{% else %}
+		<p>暂时缺货</p>
+	{% endif %}
+	<h4>{{ product.价格|cut:".0000" }}元</h4>
+	<a href="http://$www.asus.com.cn/store/product-2453.html">{{ product.购买网址 }}</a>
+	<!--<p>{{ product.购买网址 }}</p>-->
+	<style type="text/css">
+		h2{
+			color: #FF0000;
+		}
+	</style>
+
+{% endblock 主体 %}

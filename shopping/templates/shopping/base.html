@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="{% block 关键词 %}联想{% endblock 关键词 %}">
+	<meta name="description" content="{% block 网页描述 %}笔记本选购网站{% endblock 网页描述 %}">
+	<title>{% block 网页标题 %}笔记本选购{% endblock 网页标题 %}</title>
+	<!--<link rel="stylesheet" type="text/css" href="/static/base.css">-->
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript" src="/static/jquery-1.12.4 .min.js"></script>
+	<script type="text/javascript" src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	
+	{% include "shopping/header.html" %}
+	<div class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				{% include "shopping/nav.html" %}
+			</div>
+
+		</div>
+	</div>
+
+
+	<main>
+		{% block 主体 %}
+			zhutibufen
+		{% endblock 主体 %}
+	</main>
+
+
+	{% include "shopping/footer.html" %}
+
+	
+</body>
+</html>
